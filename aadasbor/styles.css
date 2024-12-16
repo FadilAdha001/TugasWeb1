@@ -1,0 +1,266 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #fff;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /* Enable scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Style the scrollbar */
+#sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Keep sidebar header fixed */
+.sidebar-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-details p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.user-details small {
+    color: #666;
+    font-size: 12px;
+}
+
+/* Sidebar Menu */
+.menu-section {
+    margin-top: 20px;
+}
+
+.menu-title {
+    padding: 10px 20px;
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    margin: 0;
+}
+
+.components {
+    padding: 0;
+    list-style: none;
+}
+
+.components li a {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 14px;
+    gap: 10px;
+}
+
+.components li a:hover {
+    background: #f8f9fa;
+    color: #0d6efd;
+}
+
+.components li.active a {
+    background: #e7f1ff;
+    color: #0d6efd;
+}
+
+.components i {
+    font-size: 18px;
+}
+
+/* Content Area */
+#content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+}
+
+/* Top Navigation */
+.navbar {
+    background: white;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#sidebarCollapse {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Dashboard Title */
+.page-title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.sub-title {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Dashboard Stats Cards */
+.dashboard-stats {
+    margin-top: 20px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+.stat-icon.blue {
+    background: #0d6efd;
+}
+
+.stat-icon.green {
+    background: #198754;
+}
+
+.stat-icon.primary {
+    background: #0dcaf0;
+}
+
+.stat-icon.purple {
+    background: #6f42c1;
+}
+
+.stat-details h3 {
+    font-size: 14px;
+    margin: 0;
+    color: #666;
+    font-weight: 500;
+}
+
+.stat-details .number {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 5px 0;
+    color: #333;
+}
+
+.stat-details .date {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    
+    #sidebar.active {
+        margin-left: 0;
+    }
+    
+    #content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .dashboard-stats {
+        flex-direction: column;
+    }
+}
+
+/* Background color for main content area */
+#content {
+    background: linear-gradient(135deg, #0d6efd 0%, #0099ff 100%);
+}
+
+/* Additional styles for better visual hierarchy */
+.components li a i {
+    width: 20px;
+    text-align: center;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
