@@ -52,3 +52,52 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+
+
+
+
+function filterPortfolio(category) {
+    // Get all portfolio items
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    // Show all items if category is 'all'
+    if (category === 'all') {
+        portfolioItems.forEach(item => {
+            item.closest('.col-md-2, .col-md-3').style.display = 'block';
+        });
+        return;
+    }
+    
+    // Filter items based on category
+    portfolioItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        const parentCol = item.closest('.col-md-2, .col-md-3');
+        
+        if (itemCategory === category) {
+            parentCol.style.display = 'block';
+        } else {
+            parentCol.style.display = 'none';
+        }
+    });
+}
+
+// Add this function to handle initial loading and URL parameters
+function initializeFilter() {
+    // Check if there's a category parameter in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category') || 'all';
+    
+    // Set the select element to the correct value
+    const filterSelect = document.getElementById('portfolioFilter');
+    if (filterSelect) {
+        filterSelect.value = category;
+    }
+    
+    // Apply the initial filter
+    filterPortfolio(category);
+}
+
+// Call initialize function when the page loads
+window.addEventListener('load', initializeFilter);
